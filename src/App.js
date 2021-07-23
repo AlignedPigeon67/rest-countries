@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import styled, { ThemeProvider } from "styled-components";
-import themes from "./ui/themes";
-import Header from "./components/Header";
-import Home from "./pages/Home";
+import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import styled, { ThemeProvider } from 'styled-components';
+import themes from './ui/themes';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Details from './pages/Details';
 
 const AppContainer = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/" exact>
               <Home />
             </Route>
+            <Route path="/:id" children={<Details />} />
           </Switch>
         </AppContainer>
       </ThemeProvider>
