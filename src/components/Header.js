@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import Brightness3Icon from "@material-ui/icons/Brightness3";
-import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
+import styled from 'styled-components';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
+import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
+import { Unlink } from '../ui/UIElements';
 
 const Container = styled.header`
   display: flex;
@@ -45,14 +46,16 @@ const ThemeToggle = styled.span`
 const Header = ({ themeToggleHandler, isDarkMode }) => {
   return (
     <Container>
-      <Logo>Where in the World?</Logo>
+      <Unlink to="/">
+        <Logo>Where in the World?</Logo>
+      </Unlink>
       <ThemeToggle onClick={themeToggleHandler}>
         {isDarkMode ? (
           <LightIcon style={{ fontSize: 18 }} />
         ) : (
           <DarkIcon style={{ fontSize: 18 }} />
         )}
-        <p>{isDarkMode ? "Dark Mode" : "Light Mode"}</p>
+        <p>{isDarkMode ? 'Dark Mode' : 'Light Mode'}</p>
       </ThemeToggle>
     </Container>
   );
