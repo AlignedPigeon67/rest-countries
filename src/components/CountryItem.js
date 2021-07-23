@@ -1,5 +1,5 @@
-import { Unlink } from "../ui/UIElements";
-import styled from "styled-components";
+import { Unlink } from '../ui/UIElements';
+import styled from 'styled-components';
 
 const Card = styled.div`
   display: grid;
@@ -36,7 +36,7 @@ const InfoText = styled.div`
 
 const CountryItem = ({ country }) => {
   return (
-    <Unlink to="/">
+    <Unlink to={`/${country.alpha3Code.toLowerCase()}`}>
       <Card>
         <Image src={country.flag} />
         <InfoContainer>
