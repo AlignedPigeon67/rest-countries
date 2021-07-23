@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CountryItem from "./CountryItem";
 
 const List = styled.section`
   display: flex;
@@ -8,7 +9,13 @@ const List = styled.section`
 `;
 
 const CountryList = ({ allCountries }) => {
-  return <List></List>;
+  return (
+    <List>
+      {allCountries.map((country) => (
+        <CountryItem country={country} />
+      ))}
+    </List>
+  );
 };
 
 export default CountryList;
