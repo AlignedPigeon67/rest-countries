@@ -81,10 +81,13 @@ const Details = () => {
             </p>
             <p>
               <Key>Currencies: </Key>{' '}
-              <Value>{country.currencies[0].name}</Value>
+              <Value>
+                {country.currencies.map(currency => currency.name).join(', ')}
+              </Value>
             </p>
             <p>
-              <Key>Languages: </Key> <Value>{country.region}</Value>
+              <Key>Languages: </Key>{' '}
+              <Value>{country.languages.map(lan => lan.name).join(', ')}</Value>
             </p>
           </span>
         </InfoContainer>
