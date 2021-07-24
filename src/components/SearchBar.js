@@ -11,6 +11,7 @@ const Container = styled.div`
   color: ${({ theme }) => theme.text};
   border-radius: 0.5rem;
   padding: 0 2.6rem;
+  box-shadow: 0 0 5px 5px ${({ theme }) => theme.shadow};
 `;
 
 const StyledSearchIcon = styled(SearchIcon)`

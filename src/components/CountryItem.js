@@ -8,6 +8,7 @@ const Card = styled.div`
   height: 34rem;
   background-color: ${({ theme }) => theme.element};
   border-radius: 1rem;
+  box-shadow: 0 0 5px 5px ${({ theme }) => theme.shadow};
 `;
 
 const Image = styled.img`
