@@ -9,7 +9,6 @@ const SearchFilterBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
-  margin-bottom: 3.5rem;
 `;
 
 const Home = () => {
@@ -18,9 +17,12 @@ const Home = () => {
   const [isError, setIsError] = useState(false);
   const [query, setQuery] = useState(null);
   const [filter, setFilter] = useState(null);
+  const [dropDownHidden, setDropDownHidden] = useState(true);
 
   useEffect(() => {
-    fetch('https://restcountries.eu/rest/v2/all')
+    fetch(
+      'https://restcountries.eu/rest/v2/all?fields=flag;name;population;region;capital;alpha3Code'
+    )
       .then(res => res.json())
       .then(
         data => {
@@ -53,6 +55,10 @@ const Home = () => {
     setFilter(newFilter);
   };
 
+  const filterClickHandler = () => {
+    setDropDownHidden(!dropDownHidden);
+  };
+
   return isLoaded ? (
     isError ? (
       <Message>ERROR</Message>
@@ -60,7 +66,12 @@ const Home = () => {
       <Main>
         <SearchFilterBox>
           <SearchBar searchInputHandler={searchInputHandler} />
-          <Filter filterHandler={filterHandler} filter={filter} />
+          <Filter
+            filterHandler={filterHandler}
+            filter={filter}
+            filterClickHandler={filterClickHandler}
+            dropDownHidden={dropDownHidden}
+          />
         </SearchFilterBox>
         <CountryList
           allCountries={allCountries}
