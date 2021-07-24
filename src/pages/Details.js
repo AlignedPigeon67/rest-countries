@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Message, Main } from '../ui/UIElements';
+import { Message, Main, Button } from '../ui/UIElements';
 import styled from 'styled-components';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import BorderCountries from '../components/BorderCountries';
 
 const Image = styled.img`
   width: 31.5rem;
-  height: 23rem;
+  /* height: 23rem; */
 `;
 
 const InfoContainer = styled.div`
@@ -25,6 +27,11 @@ const Value = styled.span`
   font-weight: 300;
 `;
 
+const SubHeading = styled.h3`
+  font-weight: 600;
+  opacity: ${({ borders }) => (borders.length < 1 ? '0.25' : '1')};
+`;
+
 const Details = () => {
   const { id } = useParams();
 
@@ -33,7 +40,9 @@ const Details = () => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetch(`https://restcountries.eu/rest/v2/alpha/${id.toLowerCase()}`)
+    fetch(
+      `https://restcountries.eu/rest/v2/alpha/${id.toLowerCase()}?fields=alpha3Code;flag;name;population;region;subregion;capital;topLevelDomain;currencies;languages;borders`
+    )
       .then(res => res.json())
       .then(
         data => {
@@ -53,6 +62,10 @@ const Details = () => {
       <Message>ERROR</Message>
     ) : (
       <Main>
+        <Button to="/">
+          <KeyboardBackspaceIcon style={{ fontSize: 20 }} />
+          <p>Back</p>
+        </Button>
         <Image src={country.flag} alt={`${country.demonym} flag`} />
         <InfoContainer>
           <h1>{country.name}</h1>
@@ -90,6 +103,8 @@ const Details = () => {
               <Value>{country.languages.map(lan => lan.name).join(', ')}</Value>
             </p>
           </span>
+          <SubHeading borders={country.borders}>Border Countries:</SubHeading>
+          <BorderCountries borderCountries={country.borders} />
         </InfoContainer>
       </Main>
     )
