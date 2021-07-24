@@ -24,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <Router basename={process.env.PUBLIC_URL>
+    <Router basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={isDarkMode ? themes.dark : themes.light}>
         <AppContainer>
           <Header
