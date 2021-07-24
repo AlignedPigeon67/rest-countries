@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -12,6 +11,7 @@ const Container = styled.div`
   color: ${({ theme }) => theme.text};
   border-radius: 0.5rem;
   padding: 0 2.4rem;
+  box-shadow: 0 0 5px 5px ${({ theme }) => theme.shadow};
 
   &:hover {
     cursor: pointer;
@@ -53,9 +53,12 @@ const DropDown = styled.div`
 
 const Arrow = styled(ExpandMoreIcon)``;
 
-const Filter = ({ filterHandler, filter }) => {
-  const [dropDownHidden, setDropDownHidden] = useState(true);
-
+const Filter = ({
+  filterHandler,
+  filter,
+  filterClickHandler,
+  dropDownHidden,
+}) => {
   const filterKeys = [
     'no filter',
     'africa',
@@ -65,10 +68,6 @@ const Filter = ({ filterHandler, filter }) => {
     'oceania',
   ];
 
-  const filterClickHandler = () => {
-    setDropDownHidden(!dropDownHidden);
-  };
-
   return (
     <>
       <Container onClick={filterClickHandler}>
@@ -77,7 +76,13 @@ const Filter = ({ filterHandler, filter }) => {
       </Container>
       <DropDown isHidden={dropDownHidden}>
         {filterKeys.map(filterKey => (
-          <Text key={filterKey} onClick={filterHandler}>
+          <Text
+            key={filterKey}
+            onClick={e => {
+              filterHandler(e);
+              filterClickHandler();
+            }}
+          >
             {filterKey}
           </Text>
         ))}
