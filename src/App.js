@@ -8,7 +8,7 @@ import Details from './pages/Details';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }) => theme.background}
+    background-color: ${({ theme }) => theme.element}
   }
 `;
 
