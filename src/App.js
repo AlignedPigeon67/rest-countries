@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import themes from './ui/themes';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Details from './pages/Details';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme.background}
+  }
+`;
 
 const AppContainer = styled.div`
   display: flex;
@@ -26,6 +32,7 @@ const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={isDarkMode ? themes.dark : themes.light}>
+        <GlobalStyle />
         <AppContainer>
           <Header
             themeToggleHandler={themeToggleHandler}
