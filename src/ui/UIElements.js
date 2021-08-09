@@ -17,6 +17,11 @@ export const Main = styled.main`
   gap: 3.5rem;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
+  width: 100%;
+
+  @media (min-width: 700px) {
+    padding: 3rem 5rem;
+  }
 `;
 
 export const Button = styled(Link)`
