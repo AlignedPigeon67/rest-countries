@@ -9,6 +9,11 @@ const SearchFilterBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
+
+  @media (min-width: 700px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const Home = () => {

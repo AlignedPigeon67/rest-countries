@@ -15,7 +15,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
-  padding: 3rem 2rem;
+  padding: 3rem 4rem;
   margin-bottom: 2rem;
   width: 100%;
 
