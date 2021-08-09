@@ -9,6 +9,7 @@ const Card = styled.div`
   background-color: ${({ theme }) => theme.element};
   border-radius: 1rem;
   box-shadow: 0 0 5px 5px ${({ theme }) => theme.shadow};
+  align-self: center;
 `;
 
 const Image = styled.img`
