@@ -37,7 +37,7 @@ const DropDown = styled.div`
   position: absolute;
   width: 20rem;
   height: 17.5rem;
-  margin-top: 13.5rem;
+  top: 25rem;
   padding: 1.6rem 2.6rem;
   background-color: ${({ theme }) => theme.element};
   color: ${({ theme }) => theme.text};
@@ -48,6 +48,15 @@ const DropDown = styled.div`
     &:first-child {
       opacity: 0.5;
     }
+  }
+
+  @media (min-width: 768px) {
+    right: 8%;
+    top: 17rem;
+  }
+
+  @media (min-width: 1024px) {
+    right: 6%;
   }
 `;
 
