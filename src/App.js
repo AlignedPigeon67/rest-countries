@@ -8,7 +8,7 @@ import Details from './pages/Details';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }) => theme.element};
+    background-color: ${({ theme }) => theme.background};
   }
 `;
 
@@ -16,7 +16,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   height: 100%;
   background-color: ${({ theme }) => theme.background};
