@@ -24,7 +24,7 @@ export const Main = styled.main`
   }
 
   @media (min-width: 1440px) {
-    padding: 3rem 15rem;
+    padding: 3rem 10rem;
   }
 `;
 

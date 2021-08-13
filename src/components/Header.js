@@ -11,6 +11,14 @@ const Container = styled.header`
   height: 80px;
   padding: 0 2rem;
   background-color: ${({ theme }) => theme.element};
+
+  @media (min-width: 700px) {
+    padding: 0 6rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 10rem;
+  }
 `;
 
 const Logo = styled.div`
