@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { Button, Message } from '../ui/UIElements';
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 15rem));
-  /* align-items: center; */
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem 0.5rem;
 `;
 
