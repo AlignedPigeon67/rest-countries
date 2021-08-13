@@ -3,9 +3,9 @@ import CountryItem from './CountryItem';
 
 const List = styled.section`
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
 `;
 
 const CountryList = ({ allCountries, query, filter }) => {
