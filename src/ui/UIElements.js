@@ -20,7 +20,11 @@ export const Main = styled.main`
   width: 100%;
 
   @media (min-width: 700px) {
-    padding: 3rem 5rem;
+    padding: 3rem 6rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 3rem 15rem;
   }
 `;
 
