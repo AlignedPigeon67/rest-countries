@@ -58,6 +58,10 @@ const DropDown = styled.div`
   @media (min-width: 1024px) {
     right: 6%;
   }
+
+  @media (min-width: 1440px) {
+    right: 7%;
+  }
 `;
 
 const Arrow = styled(ExpandMoreIcon)``;
